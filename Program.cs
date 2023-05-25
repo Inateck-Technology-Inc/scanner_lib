@@ -1,4 +1,4 @@
-﻿#pragma warning disable CS8500
+#pragma warning disable CS8500
 #pragma warning disable CS8981
 using System;
 using System.Runtime.InteropServices;
@@ -44,10 +44,10 @@ namespace CsBindgen
             Console.WriteLine(result);
 
           
-            byte[] deviceIdArray = Encoding.ASCII.GetBytes("F7:7C:4A:1F:FB:3E");
-            byte[] appIdArray = Encoding.ASCII.GetBytes("com.inateck.scanner");
-            byte[] developerIdArray = Encoding.ASCII.GetBytes("693be162686a");
-            byte[] appKeyArray = Encoding.ASCII.GetBytes("SrwG8UsCC6Fp7OSCDfckFHtfnNF8MRg9CmIvDgHXoFNFRsm3uiQviNtkyOfc//+m2ZpZ32uK3Z5g83optZwpZUFlnmX9DdyvYaaOqzIUJvruixZ3AfKmA/jYKxhbAhjvMLgoW+tHyPnARkJRAMMRULnayq4BLFXm47WGxVVQFXg=");
+            byte[] deviceIdArray = Encoding.ASCII.GetBytes("***");
+            byte[] appIdArray = Encoding.ASCII.GetBytes("***");
+            byte[] developerIdArray = Encoding.ASCII.GetBytes("***");
+            byte[] appKeyArray = Encoding.ASCII.GetBytes("***");
 
             unsafe
             {
