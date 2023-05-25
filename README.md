@@ -1,5 +1,5 @@
 # BARCODE SCANNER SDK FOR C++
-The SDK provides developers with a set of tools to set the scanner for Windows(32/64bit) platforms.
+The SDK provides developers with a set of tools to set the scanner for Windows(32/64bit) and macos(arm64) platforms.
 
 ## Configuration
 To use a library in your project, there are generally the following steps:
