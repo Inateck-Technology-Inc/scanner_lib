@@ -8,10 +8,11 @@ extern "C" {
 
 const char *scan();
 
-const char *connect_c(const char *device_id,
+const char *_connect(const char *device_id,
                     const char *app_id,
                     const char *developer_id,
-                    const char *app_key);
+                    const char *app_key,
+                    void (*callback)(const char*));
 
 const char *disconnect(const char *device_id);
 
