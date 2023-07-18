@@ -1,84 +1,156 @@
-#pragma warning disable CS8500
-#pragma warning disable CS8981
-using System;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
+﻿namespace csharp_sdk;
+using InateckScannerBle;
 
-namespace CsBindgen
+class Program
 {
-    internal delegate void ConnectCallback(IntPtr result);
-
-    internal static unsafe partial class NativeMethods
+    static void Main(string[] args)
     {
-        const string __DllName = "scanner_windows.dll";
-
-        [DllImport(__DllName, EntryPoint = "scan", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* scan();
-
-        [DllImport(__DllName, EntryPoint = "connect", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* connect(byte* device_id, byte* app_id, byte* developer_id, byte* app_key, ConnectCallback callback);
-
-
-        [DllImport(__DllName, EntryPoint = "disconnect", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* disconnect(byte* device_id);
-
-        [DllImport(__DllName, EntryPoint = "get_basic_properties", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* get_basic_properties(byte* device_id, byte* property_key);
-
-        [DllImport(__DllName, EntryPoint = "get_properties_info_by_key", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* get_properties_info_by_key(byte* device_id, byte* property_key);
-
-        [DllImport(__DllName, EntryPoint = "edit_properties_info_by_key", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* edit_properties_info_by_key(byte* device_id, byte* property_key, byte* data);
-
-        [DllImport(__DllName, EntryPoint = "get_all_barcode_properties", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* get_all_barcode_properties(byte* device_id);
-
-        [DllImport(__DllName, EntryPoint = "get_basic_device_info", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern byte* get_basic_device_info(byte* device_id);
-
-
-    
-
-        static void Main(string[] args)
+        ScannerBle scanner = new ScannerBle();
+        string sdkVersion = scanner.SdkVersion();
+        Console.WriteLine("SDK Version: " + sdkVersion);
+        int status = scanner.RegisterEvent();
+        if (status != 0)
         {
-            byte* ptr = scan();
-            string result = new string((sbyte*)ptr);
-            Console.WriteLine(result);
-
-          
-            byte[] deviceIdArray = Encoding.ASCII.GetBytes("7B:AA:8C:98:10:71");
-            byte[] appIdArray = Encoding.ASCII.GetBytes("***");
-            byte[] developerIdArray = Encoding.ASCII.GetBytes("***");
-            byte[] appKeyArray = Encoding.ASCII.GetBytes("***");
-
-
-            unsafe
+            Console.WriteLine("Init failed: " + status);
+            Environment.Exit(1);
+        }
+        Console.WriteLine("init success Status: " + status);
+        while (true)
+        {
+            string? input = Console.ReadLine();
+            input = input?.Trim();
+            if (input == null)
             {
-                fixed (byte* pDeviceId = deviceIdArray)
-                fixed (byte* pAppId = appIdArray)
-                fixed (byte* pDeveloperId = developerIdArray)
-                fixed (byte* pAppKey = appKeyArray)
-                {
-                    byte* functionResult = connect(pDeviceId, pAppId, pDeveloperId, pAppKey, Callback);
-                    result = new string((sbyte*)functionResult);
-                    Console.WriteLine(result);
-                }
+                continue;
             }
-          
-
-            Console.WriteLine("test end");
+            string[] cmd = input.Split(' ');
+            string start = cmd[0];
+            if (start != ">")
+            {
+                Console.WriteLine("Invalid command, example: > scan");
+                continue;
+            }
+            if (cmd.Length < 2)
+            {
+                Console.WriteLine("Invalid command, example: > scan");
+                continue;
+            }
+            string method = cmd[1];
+            Console.WriteLine("method: " + method);
+            if (method == "scan")
+            {
+                int scanResult = scanner.StartScan();
+                Console.WriteLine("Scan Result: " + scanResult);
+            }
+            else if (method == "stop")
+            {
+                int stopResult = scanner.StopScan();
+                Console.WriteLine("Stop Result: " + stopResult);
+            }
+            else if (method == "devices")
+            {
+                string devices = scanner.GetDevices();
+                Console.WriteLine("Devices: " + devices);
+            }
+            else if (method == "connect")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > connect fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string device = scanner.Connect(mac);
+                scanner.Auth(mac);
+                Console.WriteLine("Device: " + device);
+            }
+            else if (method == "disconnect")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > disconnect fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                int device = scanner.Disconnect(mac);
+                Console.WriteLine("Device: " + device);
+            }
+            else if (method == "version")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > version fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string version = scanner.GetHardwareVersion(mac);
+                Console.WriteLine("Version: " + version);
+            }
+            else if (method == "battery")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > battery fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string battery = scanner.GetBattery(mac);
+                Console.WriteLine("Battery: " + battery);
+            }
+            else if (method == "software")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > software fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string software = scanner.GetSoftwareVersion(mac);
+                Console.WriteLine("Software: " + software);
+            }
+            else if (method == "settingInfo")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > settingInfo fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string settingInfo = scanner.GetSettingInfo(mac);
+                Console.WriteLine("SettingInfo: " + settingInfo);
+            }
+            else if (method == "closeVolume")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > closeVolume fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string closeVolume = "[{\"area\":\"3\",\"value\":\"0\",\"name\":\"volume\"}]";
+                string info = scanner.SetSettingInfo(mac, closeVolume);
+                Console.WriteLine("SettingInfo: " + info);
+            }
+            else if (method == "openVolume")
+            {
+                if (cmd.Length < 3)
+                {
+                    Console.WriteLine("Invalid command, example: > closeVolume fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    continue;
+                }
+                string mac = cmd[2];
+                string closeVolume = "[{\"area\":\"3\",\"value\":\"4\",\"name\":\"volume\"}]";
+                string info = scanner.SetSettingInfo(mac, closeVolume);
+                Console.WriteLine("SettingInfo: " + info);
+            }
+            else if (method == "destroy")
+            {
+                scanner.Destroy();
+            }
+            else
+            {
+                Console.WriteLine("Invalid command, example: > scan");
+            }
         }
-
-        static void Callback(IntPtr result)
-        {
-            string resultString = Marshal.PtrToStringAnsi(result);
-            Console.WriteLine("Callback result: " + resultString);
-        }
-
     }
-
-
-
 }

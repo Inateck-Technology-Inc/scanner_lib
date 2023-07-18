@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.5.33502.453
+VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp_sdk", "csharp_sdk.csproj", "{A31670C1-5264-444E-A006-53F614BC2C8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "csharp_sdk", "csharp_sdk.csproj", "{779A2E35-0F36-475F-AADE-FD2319628F6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A31670C1-5264-444E-A006-53F614BC2C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A31670C1-5264-444E-A006-53F614BC2C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A31670C1-5264-444E-A006-53F614BC2C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A31670C1-5264-444E-A006-53F614BC2C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{779A2E35-0F36-475F-AADE-FD2319628F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{779A2E35-0F36-475F-AADE-FD2319628F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{779A2E35-0F36-475F-AADE-FD2319628F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{779A2E35-0F36-475F-AADE-FD2319628F6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {81D58F64-AFAE-4D71-973D-26AB91F4337D}
+		SolutionGuid = {3248E320-9A65-4188-9012-15AA00AED842}
 	EndGlobalSection
 EndGlobal
