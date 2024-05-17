@@ -8,7 +8,10 @@ class Program
         ScannerBle scanner = new ScannerBle();
         string sdkVersion = scanner.SdkVersion();
         Console.WriteLine("SDK Version: " + sdkVersion);
-        int status = scanner.RegisterEvent();
+        int status = scanner.RegisterEvent((message) =>
+        {
+            Console.WriteLine("Message: " + message);
+        });
         if (status != 0)
         {
             Console.WriteLine("Init failed: " + status);

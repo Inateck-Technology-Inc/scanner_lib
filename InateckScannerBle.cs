@@ -11,13 +11,9 @@ namespace InateckScannerBle
             
         }
 
-        public int RegisterEvent()
+        public int RegisterEvent(Callback callback)
         {
-            int status = ScannerBleC.inateck_scanner_ble_init((string message) =>
-            {
-                System.Console.WriteLine("Message: " + message);
-            });
-
+            int status = ScannerBleC.inateck_scanner_ble_init(callback);
             return status;
         }
 
