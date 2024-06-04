@@ -1,0 +1,14 @@
+//
+//  module.map.modulemap
+//  InateckScannerBleKit
+//
+//  Created by inateck on 2024/5/20.
+//
+
+framework module InateckScannerBleKit {
+    umbrella header "InateckScannerBleKit.h"
+
+    export *
+    module * { export * }
+    
+}

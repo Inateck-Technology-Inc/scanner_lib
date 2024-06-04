@@ -1,0 +1,80 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-bare-slash-regex -module-name InateckScannerBleKit
+import CoreBluetooth
+import Foundation
+@_exported import InateckScannerBleKit
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc @_hasMissingDesignatedInitializers public class BLEDevice : ObjectiveC.NSObject {
+  public enum ConnectType : Swift.Int {
+    case none
+    case disconnected
+    case disconnecting
+    case connected
+    case connecting
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public var advertisementData: [Swift.String : Any]
+  final public let messageManager: InateckScannerBleKit.MessageManager
+  public var uuid: Swift.String {
+    get
+  }
+  public var name: Swift.String? {
+    get
+  }
+  public var productName: Swift.String?
+  public var connectState: InateckScannerBleKit.BLEDevice.ConnectType
+  @objc deinit
+}
+extension InateckScannerBleKit.BLEDevice {
+  public func connect(timeout: Foundation.TimeInterval, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+}
+extension InateckScannerBleKit.BLEDevice {
+  public func disconnect(completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> ())
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BLEManager : ObjectiveC.NSObject {
+  public enum ScanStatus {
+    case start
+    case scan(device: InateckScannerBleKit.BLEDevice)
+    case stop
+  }
+  public static let shared: InateckScannerBleKit.BLEManager
+  public var devices: [InateckScannerBleKit.BLEDevice]
+  public var disconnectHandler: ((InateckScannerBleKit.BLEDevice) -> ())?
+  public func stopScan()
+  public func scanDevices(timeoutAfter timeout: Foundation.TimeInterval, completion: @escaping (InateckScannerBleKit.BLEManager.ScanStatus) -> ())
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers public class MessageManager : ObjectiveC.NSObject {
+  @objc deinit
+}
+extension InateckScannerBleKit.MessageManager {
+  public func getBatteryInfo(_ completion: @escaping ((Swift.Result<Swift.Int, any Swift.Error>) -> ()))
+  public func getHardwareInfo(_ completion: @escaping ((Swift.Result<Swift.String, any Swift.Error>) -> ()))
+  public func getInventoryNum(_ completion: @escaping ((Swift.Result<Swift.Int, any Swift.Error>) -> ()))
+  public func getVersion(_ completion: @escaping ((Swift.Result<Swift.String, any Swift.Error>) -> ()))
+  public func setName(_ name: Swift.String, completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func setTime(_ time: Swift.Int, completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func inventoryClearCache(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func inventoryUploadCache(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func inventoryUploadCacheNumber(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func setReset(completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func setRestart(completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func closeAllCode(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func openAllCode(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+  public func resetAllCode(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
+}
+extension InateckScannerBleKit.MessageManager {
+  public func getSettingInfo(_ completion: @escaping ((Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>) -> ()))
+  public func setSettingInfo(with cmd: Swift.String, completion: @escaping ((Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>) -> ()))
+}
+extension InateckScannerBleKit.BLEDevice.ConnectType : Swift.Equatable {}
+extension InateckScannerBleKit.BLEDevice.ConnectType : Swift.Hashable {}
+extension InateckScannerBleKit.BLEDevice.ConnectType : Swift.RawRepresentable {}
