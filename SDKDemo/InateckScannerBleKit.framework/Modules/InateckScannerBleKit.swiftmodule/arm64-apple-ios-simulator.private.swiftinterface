@@ -34,7 +34,7 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 extension InateckScannerBleKit.BLEDevice {
-  public func connect(timeout: Foundation.TimeInterval, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+  public func connect(timeout: Foundation.TimeInterval, callBack: ((Swift.String) -> Swift.Void)?, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
 }
 extension InateckScannerBleKit.BLEDevice {
   public func disconnect(completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> ())
@@ -72,8 +72,8 @@ extension InateckScannerBleKit.MessageManager {
   public func resetAllCode(_ completion: @escaping ((Swift.Result<Swift.Void, any Swift.Error>) -> ()))
 }
 extension InateckScannerBleKit.MessageManager {
-  public func getSettingInfo(_ completion: @escaping ((Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>) -> ()))
-  public func setSettingInfo(with cmd: Swift.String, completion: @escaping ((Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>) -> ()))
+  public func getSettingInfo(_ completion: @escaping ((Swift.Result<Swift.String, any Swift.Error>) -> ()))
+  public func setSettingInfo(with cmd: Swift.String, completion: @escaping ((Swift.Result<Swift.String, any Swift.Error>) -> ()))
 }
 extension InateckScannerBleKit.BLEDevice.ConnectType : Swift.Equatable {}
 extension InateckScannerBleKit.BLEDevice.ConnectType : Swift.Hashable {}

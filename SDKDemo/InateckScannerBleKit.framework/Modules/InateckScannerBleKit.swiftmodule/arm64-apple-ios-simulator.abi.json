@@ -281,13 +281,21 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "InateckScannerCmd",
+        "printedName": "InateckScannerCmd",
         "declKind": "Import",
         "moduleName": "InateckScannerBleKit",
         "declAttributes": [
+          "ImplementationOnly",
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "InateckScannerBleKit"
       },
       {
         "kind": "Import",
@@ -978,171 +986,9 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "parseHandler",
-            "printedName": "parseHandler",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent)?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "BleParseEvent",
-                        "printedName": "InateckScannerBleKit.BleParseEvent",
-                        "usr": "s:20InateckScannerBleKit0C10ParseEventO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CBCharacteristic",
-                        "printedName": "CoreBluetooth.CBCharacteristic",
-                        "usr": "c:objc(cs)CBCharacteristic"
-                      }
-                    ]
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvp",
-            "mangledName": "$s20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvp",
-            "moduleName": "InateckScannerBleKit",
-            "isOpen": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage"
-            ],
-            "fixedbinaryorder": 4,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "((CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent)?",
-                    "children": [
-                      {
-                        "kind": "TypeFunc",
-                        "name": "Function",
-                        "printedName": "(CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "BleParseEvent",
-                            "printedName": "InateckScannerBleKit.BleParseEvent",
-                            "usr": "s:20InateckScannerBleKit0C10ParseEventO"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CBCharacteristic",
-                            "printedName": "CoreBluetooth.CBCharacteristic",
-                            "usr": "c:objc(cs)CBCharacteristic"
-                          }
-                        ]
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvg",
-                "mangledName": "$s20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvg",
-                "moduleName": "InateckScannerBleKit",
-                "implicit": true,
-                "isOpen": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "((CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent)?",
-                    "children": [
-                      {
-                        "kind": "TypeFunc",
-                        "name": "Function",
-                        "printedName": "(CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "BleParseEvent",
-                            "printedName": "InateckScannerBleKit.BleParseEvent",
-                            "usr": "s:20InateckScannerBleKit0C10ParseEventO"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "CBCharacteristic",
-                            "printedName": "CoreBluetooth.CBCharacteristic",
-                            "usr": "c:objc(cs)CBCharacteristic"
-                          }
-                        ]
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvs",
-                "mangledName": "$s20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvs",
-                "moduleName": "InateckScannerBleKit",
-                "implicit": true,
-                "isOpen": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvM",
-                "mangledName": "$s20InateckScannerBleKit0C4TaskC12parseHandlerAA0C10ParseEventOSo16CBCharacteristicCcSgvM",
-                "moduleName": "InateckScannerBleKit",
-                "implicit": true,
-                "isOpen": true,
-                "declAttributes": [
-                  "Transparent"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(event:characteristicUUID:serviceUUID:parseHandler:completion:)",
+            "printedName": "init(event:characteristicUUID:serviceUUID:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1167,34 +1013,6 @@
                 "name": "CBUUIDConvertible",
                 "printedName": "any InateckScannerBleKit.CBUUIDConvertible",
                 "usr": "s:20InateckScannerBleKit17CBUUIDConvertibleP"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "((CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent)?",
-                "children": [
-                  {
-                    "kind": "TypeFunc",
-                    "name": "Function",
-                    "printedName": "(CoreBluetooth.CBCharacteristic) -> InateckScannerBleKit.BleParseEvent",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "BleParseEvent",
-                        "printedName": "InateckScannerBleKit.BleParseEvent",
-                        "usr": "s:20InateckScannerBleKit0C10ParseEventO"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "CBCharacteristic",
-                        "printedName": "CoreBluetooth.CBCharacteristic",
-                        "usr": "c:objc(cs)CBCharacteristic"
-                      }
-                    ]
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -1246,9 +1064,12 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:20InateckScannerBleKit0C4TaskC5event18characteristicUUID07serviceH012parseHandler10completionAcA0C5EventO_AA17CBUUIDConvertible_pAaK_pAA0c5ParseM0OSo16CBCharacteristicCcSgys6ResultOy10Foundation4DataVSgs5Error_pGcSgtcfc",
-            "mangledName": "$s20InateckScannerBleKit0C4TaskC5event18characteristicUUID07serviceH012parseHandler10completionAcA0C5EventO_AA17CBUUIDConvertible_pAaK_pAA0c5ParseM0OSo16CBCharacteristicCcSgys6ResultOy10Foundation4DataVSgs5Error_pGcSgtcfc",
+            "usr": "s:20InateckScannerBleKit0C4TaskC5event18characteristicUUID07serviceH010completionAcA0C5EventO_AA17CBUUIDConvertible_pAaJ_pys6ResultOy10Foundation4DataVSgs5Error_pGcSgtcfc",
+            "mangledName": "$s20InateckScannerBleKit0C4TaskC5event18characteristicUUID07serviceH010completionAcA0C5EventO_AA17CBUUIDConvertible_pAaJ_pys6ResultOy10Foundation4DataVSgs5Error_pGcSgtcfc",
             "moduleName": "InateckScannerBleKit",
+            "declAttributes": [
+              "RawDocComment"
+            ],
             "init_kind": "Designated"
           }
         ],
@@ -1720,6 +1541,245 @@
                 "declKind": "Accessor",
                 "usr": "s:20InateckScannerBleKit0C5QueueC5timerSo7NSTimerCSgvM",
                 "mangledName": "$s20InateckScannerBleKit0C5QueueC5timerSo7NSTimerCSgvM",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "notifyData",
+            "printedName": "notifyData",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvp",
+            "mangledName": "$s20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvp",
+            "moduleName": "InateckScannerBleKit",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "fixedbinaryorder": 4,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvg",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvg",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvs",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvs",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvM",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC10notifyData10Foundation0G0VSgvM",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "device",
+            "printedName": "device",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "InateckScannerBleKit.BLEDevice?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvp",
+            "mangledName": "$s20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvp",
+            "moduleName": "InateckScannerBleKit",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership"
+            ],
+            "fixedbinaryorder": 5,
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "InateckScannerBleKit.BLEDevice?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BLEDevice",
+                        "printedName": "InateckScannerBleKit.BLEDevice",
+                        "usr": "c:@M@InateckScannerBleKit@objc(cs)BLEDevice"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvg",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvg",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "InateckScannerBleKit.BLEDevice?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BLEDevice",
+                        "printedName": "InateckScannerBleKit.BLEDevice",
+                        "usr": "c:@M@InateckScannerBleKit@objc(cs)BLEDevice"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvs",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvs",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvM",
+                "mangledName": "$s20InateckScannerBleKit0C5QueueC6deviceAA9BLEDeviceCSgvM",
                 "moduleName": "InateckScannerBleKit",
                 "implicit": true,
                 "isOpen": true,
@@ -2760,6 +2820,155 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "callBack",
+            "printedName": "callBack",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.String) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:20InateckScannerBleKit9BLEDeviceC8callBackySScSgvp",
+            "mangledName": "$s20InateckScannerBleKit9BLEDeviceC8callBackySScSgvp",
+            "moduleName": "InateckScannerBleKit",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit9BLEDeviceC8callBackySScSgvg",
+                "mangledName": "$s20InateckScannerBleKit9BLEDeviceC8callBackySScSgvg",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit9BLEDeviceC8callBackySScSgvs",
+                "mangledName": "$s20InateckScannerBleKit9BLEDeviceC8callBackySScSgvs",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit9BLEDeviceC8callBackySScSgvM",
+                "mangledName": "$s20InateckScannerBleKit9BLEDeviceC8callBackySScSgvM",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(peripheral:advertisementData:)",
@@ -2831,7 +3040,7 @@
           {
             "kind": "Function",
             "name": "connect",
-            "printedName": "connect(timeout:completion:)",
+            "printedName": "connect(timeout:callBack:completion:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2843,6 +3052,32 @@
                 "name": "Double",
                 "printedName": "Swift.Double",
                 "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.String) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeFunc",
@@ -2877,8 +3112,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:20InateckScannerBleKit9BLEDeviceC7connect7timeout10completionySd_ys6ResultOyyts5Error_pGctF",
-            "mangledName": "$s20InateckScannerBleKit9BLEDeviceC7connect7timeout10completionySd_ys6ResultOyyts5Error_pGctF",
+            "usr": "s:20InateckScannerBleKit9BLEDeviceC7connect7timeout8callBack10completionySd_ySScSgys6ResultOyyts5Error_pGctF",
+            "mangledName": "$s20InateckScannerBleKit9BLEDeviceC7connect7timeout8callBack10completionySd_ySScSgys6ResultOyyts5Error_pGctF",
             "moduleName": "InateckScannerBleKit",
             "isOpen": true,
             "declAttributes": [
@@ -3067,7 +3302,6 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl",
-          "RawDocComment",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -9448,7 +9682,6 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl",
-          "RawDocComment",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -11413,6 +11646,112 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "device",
+            "printedName": "device",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WeakStorage",
+                "printedName": "InateckScannerBleKit.BLEDevice?"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvp",
+            "mangledName": "$s20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvp",
+            "moduleName": "InateckScannerBleKit",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "ReferenceOwnership"
+            ],
+            "ownership": 1,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "InateckScannerBleKit.BLEDevice?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BLEDevice",
+                        "printedName": "InateckScannerBleKit.BLEDevice",
+                        "usr": "c:@M@InateckScannerBleKit@objc(cs)BLEDevice"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvg",
+                "mangledName": "$s20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvg",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "InateckScannerBleKit.BLEDevice?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BLEDevice",
+                        "printedName": "InateckScannerBleKit.BLEDevice",
+                        "usr": "c:@M@InateckScannerBleKit@objc(cs)BLEDevice"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvs",
+                "mangledName": "$s20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvs",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvM",
+                "mangledName": "$s20InateckScannerBleKit14MessageManagerC6deviceAA9BLEDeviceCSgvM",
+                "moduleName": "InateckScannerBleKit",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(peripheral:)",
@@ -12627,7 +12966,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>) -> ()",
+                "printedName": "(Swift.Result<Swift.String, any Swift.Error>) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -12637,26 +12976,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Result",
-                    "printedName": "Swift.Result<(Swift.String, Foundation.Data), any Swift.Error>",
+                    "printedName": "Swift.Result<Swift.String, any Swift.Error>",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Tuple",
-                        "printedName": "(Swift.String, Foundation.Data)",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "String",
-                            "printedName": "Swift.String",
-                            "usr": "s:SS"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Data",
-                            "printedName": "Foundation.Data",
-                            "usr": "s:10Foundation4DataV"
-                          }
-                        ]
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
                       },
                       {
                         "kind": "TypeNominal",
@@ -12671,8 +12997,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:20InateckScannerBleKit14MessageManagerC14getSettingInfoyyys6ResultOySS_10Foundation4DataVts5Error_pGcF",
-            "mangledName": "$s20InateckScannerBleKit14MessageManagerC14getSettingInfoyyys6ResultOySS_10Foundation4DataVts5Error_pGcF",
+            "usr": "s:20InateckScannerBleKit14MessageManagerC14getSettingInfoyyys6ResultOySSs5Error_pGcF",
+            "mangledName": "$s20InateckScannerBleKit14MessageManagerC14getSettingInfoyyys6ResultOySSs5Error_pGcF",
             "moduleName": "InateckScannerBleKit",
             "isOpen": true,
             "declAttributes": [
@@ -12684,19 +13010,13 @@
           },
           {
             "kind": "Function",
-            "name": "setSettingInfo",
-            "printedName": "setSettingInfo(with:completion:)",
+            "name": "_getSettingInfo",
+            "printedName": "_getSettingInfo(_:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               },
               {
                 "kind": "TypeFunc",
@@ -12745,8 +13065,68 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:20InateckScannerBleKit14MessageManagerC14setSettingInfo4with10completionySS_ys6ResultOySS_10Foundation4DataVts5Error_pGctF",
-            "mangledName": "$s20InateckScannerBleKit14MessageManagerC14setSettingInfo4with10completionySS_ys6ResultOySS_10Foundation4DataVts5Error_pGctF",
+            "usr": "s:20InateckScannerBleKit14MessageManagerC15_getSettingInfoyyys6ResultOySS_10Foundation4DataVts5Error_pGcF",
+            "mangledName": "$s20InateckScannerBleKit14MessageManagerC15_getSettingInfoyyys6ResultOySS_10Foundation4DataVts5Error_pGcF",
+            "moduleName": "InateckScannerBleKit",
+            "isOpen": true,
+            "declAttributes": [
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setSettingInfo",
+            "printedName": "setSettingInfo(with:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Result<Swift.String, any Swift.Error>) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Result",
+                    "printedName": "Swift.Result<Swift.String, any Swift.Error>",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Error",
+                        "printedName": "any Swift.Error",
+                        "usr": "s:s5ErrorP"
+                      }
+                    ],
+                    "usr": "s:s6ResultO"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20InateckScannerBleKit14MessageManagerC14setSettingInfo4with10completionySS_ys6ResultOySSs5Error_pGctF",
+            "mangledName": "$s20InateckScannerBleKit14MessageManagerC14setSettingInfo4with10completionySS_ys6ResultOySSs5Error_pGctF",
             "moduleName": "InateckScannerBleKit",
             "isOpen": true,
             "declAttributes": [
@@ -19497,133 +19877,133 @@
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BleQueue.swift",
       "kind": "IntegerLiteral",
-      "offset": 839,
+      "offset": 885,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BleQueue.swift",
       "kind": "BooleanLiteral",
-      "offset": 2503,
+      "offset": 2549,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BleQueue.swift",
       "kind": "IntegerLiteral",
-      "offset": 2526,
+      "offset": 2572,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 231,
+      "offset": 214,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 246,
+      "offset": 229,
       "length": 12,
       "value": "1"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 272,
+      "offset": 255,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 299,
+      "offset": 282,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 322,
+      "offset": 305,
       "length": 10,
       "value": "4"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 231,
+      "offset": 214,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 246,
+      "offset": 229,
       "length": 12,
       "value": "1"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 272,
+      "offset": 255,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 299,
+      "offset": 282,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 322,
+      "offset": 305,
       "length": 10,
       "value": "4"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 231,
+      "offset": 214,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 246,
+      "offset": 229,
       "length": 12,
       "value": "1"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 272,
+      "offset": 255,
       "length": 13,
       "value": "2"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 299,
+      "offset": 282,
       "length": 9,
       "value": "3"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "IntegerLiteral",
-      "offset": 322,
+      "offset": 305,
       "length": 10,
       "value": "4"
     },
     {
       "filePath": "\/Users\/inateck\/Desktop\/scanner\/2024-3-15-scanner\/scanner_sdk\/ios\/ScannerBleiOS\/InateckScannerBleKit\/InateckScannerBleKit\/BLECore\/BLEDevice.swift",
       "kind": "StringLiteral",
-      "offset": 149,
+      "offset": 132,
       "length": 9,
       "value": "\"InateckScannerBleKit.BLEDevice\""
     },

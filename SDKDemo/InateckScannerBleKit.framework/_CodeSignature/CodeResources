@@ -14,27 +14,27 @@
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		SYPuAcSbPIy47G4T5eDg4Ftqcgg=
+		kSmX7zUupzKjWsa41yqQTRi1kpw=
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		xPc65FSkspwysmaMweoPLuMyygk=
+		aSIsBvLWQ6IZHIFUBZM/S5YH44A=
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		ECyn9tJRVeXSOZ+SL8bYo+MIhL4=
+		1WaFrzgNKZvD6fZIUWhase6q/Rw=
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		o5/+Zk25CFOhpzUVEPJUFKwrCYE=
+		yb/d/G2xBE48QSNg9oG5BwnokQ0=
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		ECyn9tJRVeXSOZ+SL8bYo+MIhL4=
+		1WaFrzgNKZvD6fZIUWhase6q/Rw=
 		</data>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		91TBVpxSL7UxRoHvd+0UqKZNHiE=
+		i6wwUHYod2LN0k5W0Mn/XrjS3Qg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -58,66 +58,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SYPuAcSbPIy47G4T5eDg4Ftqcgg=
+			kSmX7zUupzKjWsa41yqQTRi1kpw=
 			</data>
 			<key>hash2</key>
 			<data>
-			6tN2yguOip5pjdH2AS0OND4LY27dBA/WP9oel/LQYBY=
+			v8xnw1pYVmKR0Phuxp/wK1dt0WIn3x8QHqn5rtjaQho=
 			</data>
 		</dict>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xPc65FSkspwysmaMweoPLuMyygk=
+			aSIsBvLWQ6IZHIFUBZM/S5YH44A=
 			</data>
 			<key>hash2</key>
 			<data>
-			INZCQRDFYlzWE0ZF/qCyhYvi7ShdrIMsC99FaLHwWGI=
+			LnjdmK1DnUzVm90NHDxdWhG4iyPbvglqaOX+WDA2ttg=
 			</data>
 		</dict>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ECyn9tJRVeXSOZ+SL8bYo+MIhL4=
+			1WaFrzgNKZvD6fZIUWhase6q/Rw=
 			</data>
 			<key>hash2</key>
 			<data>
-			VeBHALrue/6T9FIIgrnYyJ8X8xNfJCv4uvQsooavoEA=
+			Y0Tg7n+JZIkp0noGFNX5oIJmJIZ/ObccumXS6prBL3Q=
 			</data>
 		</dict>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			o5/+Zk25CFOhpzUVEPJUFKwrCYE=
+			yb/d/G2xBE48QSNg9oG5BwnokQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5+LQ0GFEuIOtEmP2dibYzp6Z8APgr68L4/88K1nASLA=
+			MMd0fReaS2KWAzk34IRpM2geW3U7ctb7DJy60lvf6Hc=
 			</data>
 		</dict>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ECyn9tJRVeXSOZ+SL8bYo+MIhL4=
+			1WaFrzgNKZvD6fZIUWhase6q/Rw=
 			</data>
 			<key>hash2</key>
 			<data>
-			VeBHALrue/6T9FIIgrnYyJ8X8xNfJCv4uvQsooavoEA=
+			Y0Tg7n+JZIkp0noGFNX5oIJmJIZ/ObccumXS6prBL3Q=
 			</data>
 		</dict>
 		<key>Modules/InateckScannerBleKit.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			91TBVpxSL7UxRoHvd+0UqKZNHiE=
+			i6wwUHYod2LN0k5W0Mn/XrjS3Qg=
 			</data>
 			<key>hash2</key>
 			<data>
-			PPC7G3aKjhJXQRYn36aGAhwaujzLaIgFvvLRCZn7o0A=
+			MsWzY3BWznHiFnGp2h5JFJ4UY1UgsOQEgILcZux2vPA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

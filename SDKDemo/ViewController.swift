@@ -103,6 +103,8 @@ extension ViewController: UITableViewDataSource {
         cell.connectHandler = { connect in
             if connect {
                 device.connect(timeout: 5) { result in
+                    print("code: \(result)")
+                } completion: { result in
                     switch result {
                     case .success:
                         print("\(device.name ?? "unknown") connect success")
