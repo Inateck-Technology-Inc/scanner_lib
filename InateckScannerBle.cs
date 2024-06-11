@@ -37,9 +37,9 @@ namespace InateckScannerBle
             return ScannerBleC.inateck_scanner_ble_get_devices();
         }
 
-        public string Connect(string mac)
+        public string Connect(string mac, Callback callback)
         {
-            return ScannerBleC.inateck_scanner_ble_connect(mac);
+            return ScannerBleC.inateck_scanner_ble_connect(mac, callback);
         }
 
         public int Auth(string mac)
@@ -153,7 +153,7 @@ namespace InateckScannerBle
         public static extern string inateck_scanner_ble_get_devices();
 
         [DllImport(LibPath)]
-        public static extern string inateck_scanner_ble_connect(string mac);
+        public static extern string inateck_scanner_ble_connect(string mac, Callback callback);
 
         [DllImport(LibPath)]
         public static extern int inateck_scanner_ble_auth(string mac);

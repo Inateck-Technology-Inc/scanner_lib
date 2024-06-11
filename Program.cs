@@ -63,7 +63,10 @@ class Program
                     continue;
                 }
                 string mac = cmd[2];
-                string device = scanner.Connect(mac);
+                string device = scanner.Connect(mac, (message) =>
+                {
+                    Console.WriteLine("Code: " + message);
+                });
                 scanner.Auth(mac);
                 Console.WriteLine("Device: " + device);
             }
