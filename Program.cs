@@ -6,6 +6,7 @@ class Program
     static void Main(string[] args)
     {
         ScannerBle scanner = new ScannerBle();
+        scanner.Debug(true);
         string sdkVersion = scanner.SdkVersion();
         Console.WriteLine("SDK Version: " + sdkVersion);
         int status = scanner.RegisterEvent((message) =>
@@ -65,6 +66,7 @@ class Program
                 string mac = cmd[2];
                 string device = scanner.Connect(mac, (message) =>
                 {
+                    Console.WriteLine("Mac: " + mac);
                     Console.WriteLine("Code: " + message);
                 });
                 scanner.Auth(mac);

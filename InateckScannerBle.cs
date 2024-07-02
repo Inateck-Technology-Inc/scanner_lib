@@ -131,6 +131,11 @@ namespace InateckScannerBle
         {
             return ScannerBleC.inateck_scanner_ble_sdk_version();
         }
+
+        public string Debug(bool enable)
+        {
+            return ScannerBleC.inateck_scanner_ble_debug(enable);
+        }
     }
 
     class ScannerBleC
@@ -208,5 +213,8 @@ namespace InateckScannerBle
 
         [DllImport(LibPath)]
         public static extern string inateck_scanner_ble_sdk_version();
+
+        [DllImport(LibPath)]
+        public static extern string inateck_scanner_ble_debug(bool enable);
     }
 }
