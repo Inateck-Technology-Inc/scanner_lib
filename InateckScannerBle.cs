@@ -2,13 +2,34 @@ using System.Runtime.InteropServices;
 
 namespace InateckScannerBle
 {
+    public enum DeviceType
+    {
+        None = 0,
+        Pro8,
+        ST45,
+        ST23,
+        ST91,
+        ST42,
+        ST54,
+        ST55,
+        ST73,
+        ST75,
+        ST43,
+        P7,
+        ST21,
+        ST60,
+        ST70,
+        P6,
+        ST35,
+    }
+
     public delegate void Callback(string message);
 
     public class ScannerBle
     {
         public ScannerBle()
         {
-            
+
         }
 
         public int RegisterEvent(Callback callback)
@@ -62,19 +83,24 @@ namespace InateckScannerBle
             return ScannerBleC.inateck_scanner_ble_get_hardware_version(mac);
         }
 
+        public string BeeOrShake(string mac)
+        {
+            return ScannerBleC.inateck_scanner_ble_bee_or_shake(mac);
+        }
+
         public string GetSoftwareVersion(string mac)
         {
             return ScannerBleC.inateck_scanner_ble_get_software_version(mac);
         }
 
-        public string GetSettingInfo(string mac)
+        public string GetSettingInfo(string mac, DeviceType deviceType)
         {
-            return ScannerBleC.inateck_scanner_ble_get_setting_info(mac);
+            return ScannerBleC.inateck_scanner_ble_get_setting_info(mac, (int)deviceType);
         }
 
-        public string SetSettingInfo(string mac, string cmd)
+        public string SetSettingInfo(string mac, string cmd, DeviceType deviceType)
         {
-            return ScannerBleC.inateck_scanner_ble_set_setting_info(mac, cmd);
+            return ScannerBleC.inateck_scanner_ble_set_setting_info(mac, cmd, (int)deviceType);
         }
 
         public int SetName(string mac, string name)
@@ -141,7 +167,7 @@ namespace InateckScannerBle
     class ScannerBleC
     {
         const string LibPath = "./lib/libscanner_ble_x86_64-apple-darwin.dylib";
-        
+
         [DllImport(LibPath)]
         public static extern int inateck_scanner_ble_init(Callback callback);
 
@@ -173,13 +199,16 @@ namespace InateckScannerBle
         public static extern string inateck_scanner_ble_get_hardware_version(string mac);
 
         [DllImport(LibPath)]
+        public static extern string inateck_scanner_ble_bee_or_shake(string mac);
+
+        [DllImport(LibPath)]
         public static extern string inateck_scanner_ble_get_software_version(string mac);
 
         [DllImport(LibPath)]
-        public static extern string inateck_scanner_ble_get_setting_info(string mac);
+        public static extern string inateck_scanner_ble_get_setting_info(string mac, int deviceType);
 
         [DllImport(LibPath)]
-        public static extern string inateck_scanner_ble_set_setting_info(string mac, string cmd);
+        public static extern string inateck_scanner_ble_set_setting_info(string mac, string cmd, int deviceType);
 
         [DllImport(LibPath)]
         public static extern int inateck_scanner_ble_set_name(string mac, string name);

@@ -1,17 +1,29 @@
 ﻿namespace csharp_sdk;
 using InateckScannerBle;
+using Newtonsoft.Json.Linq;
 
 class Program
 {
+    public const string CommandPrefix = "!";
+    public static string MacAddress { get; set; }
+    public static ScannerBle Scanner { get; set; }
+
+    static Program()
+    {
+        MacAddress = "";
+        Scanner = new ScannerBle();
+    }
+
     static void Main(string[] args)
     {
-        ScannerBle scanner = new ScannerBle();
-        scanner.Debug(true);
-        string sdkVersion = scanner.SdkVersion();
+        Scanner.Debug(true);
+        string sdkVersion = Scanner.SdkVersion();
         Console.WriteLine("SDK Version: " + sdkVersion);
-        int status = scanner.RegisterEvent((message) =>
+        Console.WriteLine("MacAddress: " + MacAddress ?? "N/A");
+        int status = Scanner.RegisterEvent((message) =>
         {
             Console.WriteLine("Message: " + message);
+            HandleEvents(message);
         });
         if (status != 0)
         {
@@ -21,6 +33,8 @@ class Program
         Console.WriteLine("init success Status: " + status);
         while (true)
         {
+            PrintMenu();
+            Console.ForegroundColor = ConsoleColor.White;
             string? input = Console.ReadLine();
             input = input?.Trim();
             if (input == null)
@@ -28,137 +42,218 @@ class Program
                 continue;
             }
             string[] cmd = input.Split(' ');
-            string start = cmd[0];
-            if (start != ">")
+            string command = cmd[0];
+            if (!command.StartsWith(CommandPrefix))
             {
-                Console.WriteLine("Invalid command, example: > scan");
+                PrintInRed("Invalid command.");
                 continue;
             }
-            if (cmd.Length < 2)
+            command = command[CommandPrefix.Length..];
+            PrintInGreen("Command: " + command);
+
+            if (command == "scan")
             {
-                Console.WriteLine("Invalid command, example: > scan");
-                continue;
+                int scanResult = Scanner.StartScan();
+                PrintInGreen("Scan Result: " + scanResult);
             }
-            string method = cmd[1];
-            Console.WriteLine("method: " + method);
-            if (method == "scan")
+            else if (command == "stop")
             {
-                int scanResult = scanner.StartScan();
-                Console.WriteLine("Scan Result: " + scanResult);
+                int stopResult = Scanner.StopScan();
+                PrintInGreen("Stop Result: " + stopResult);
             }
-            else if (method == "stop")
+            else if (command == "devices")
             {
-                int stopResult = scanner.StopScan();
-                Console.WriteLine("Stop Result: " + stopResult);
+                string devices = Scanner.GetDevices();
+                PrintInGreen("Devices: " + devices);
             }
-            else if (method == "devices")
+            else if (command == "connect")
             {
-                string devices = scanner.GetDevices();
-                Console.WriteLine("Devices: " + devices);
+                ConnectToScanner();
             }
-            else if (method == "connect")
+            else if (command == "disconnect")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > connect fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string device = scanner.Connect(mac, (message) =>
-                {
-                    Console.WriteLine("Mac: " + mac);
-                    Console.WriteLine("Code: " + message);
-                });
-                scanner.Auth(mac);
-                Console.WriteLine("Device: " + device);
+                int device = Scanner.Disconnect(MacAddress);
+                PrintInGreen("Device: " + device);
             }
-            else if (method == "disconnect")
+            else if (command == "setMac")
             {
-                if (cmd.Length < 3)
+                if (cmd.Length != 2)
                 {
-                    Console.WriteLine("Invalid command, example: > disconnect fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"Invalid Format. Please use the command as follows: {CommandPrefix}setMac FF:FF:FF:FF:FF:FF");
                     continue;
                 }
-                string mac = cmd[2];
-                int device = scanner.Disconnect(mac);
-                Console.WriteLine("Device: " + device);
+                MacAddress = cmd[1];
+                PrintInGreen($"Set MacAddress to: {MacAddress}");
             }
-            else if (method == "version")
+            else if (command == "version")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > version fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string version = scanner.GetHardwareVersion(mac);
-                Console.WriteLine("Version: " + version);
+                string version = Scanner.GetHardwareVersion(MacAddress);
+                PrintInGreen("Hardware version: " + version);
             }
-            else if (method == "battery")
+            else if (command == "battery")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > battery fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string battery = scanner.GetBattery(mac);
-                Console.WriteLine("Battery: " + battery);
+                string battery = Scanner.GetBattery(MacAddress);
+                PrintInGreen("Battery: " + battery);
             }
-            else if (method == "software")
+            else if (command == "software")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > software fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string software = scanner.GetSoftwareVersion(mac);
-                Console.WriteLine("Software: " + software);
+                string software = Scanner.GetSoftwareVersion(MacAddress);
+                PrintInGreen("Software: " + software);
             }
-            else if (method == "settingInfo")
+            else if (command == "settingInfo")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > settingInfo fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string settingInfo = scanner.GetSettingInfo(mac);
-                Console.WriteLine("SettingInfo: " + settingInfo);
+                string settingInfo = Scanner.GetSettingInfo(MacAddress, DeviceType.ST21);
+                PrintInGreen("SettingInfo: " + settingInfo.Replace("},", "},\n"));
             }
-            else if (method == "closeVolume")
+            else if (command == "quiet")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > closeVolume fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string closeVolume = "[{\"area\":\"3\",\"value\":\"0\",\"name\":\"volume\"}]";
-                string info = scanner.SetSettingInfo(mac, closeVolume);
-                Console.WriteLine("SettingInfo: " + info);
+                string closeVolume = "[{\"flag\":1001,\"value\":0}]";
+                string info = Scanner.SetSettingInfo(MacAddress, closeVolume, DeviceType.ST21);
+                Scanner.BeeOrShake(MacAddress);
+                PrintInGreen("SettingInfo: " + info.Replace("},", "},\n"));
             }
-            else if (method == "openVolume")
+            else if (command == "loud")
             {
-                if (cmd.Length < 3)
+                if (MacAddress == null)
                 {
-                    Console.WriteLine("Invalid command, example: > closeVolume fb556f1d-f919-2d4d-c98c-fcbe246af2e4");
+                    PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
                     continue;
                 }
-                string mac = cmd[2];
-                string closeVolume = "[{\"area\":\"3\",\"value\":\"4\",\"name\":\"volume\"}]";
-                string info = scanner.SetSettingInfo(mac, closeVolume);
-                Console.WriteLine("SettingInfo: " + info);
+                string closeVolume = "[{\"flag\":1001,\"value\":4}]";
+                string info = Scanner.SetSettingInfo(MacAddress, closeVolume, DeviceType.ST21);
+                Scanner.BeeOrShake(MacAddress);
+                PrintInGreen("SettingInfo: " + info.Replace("},", "},\n"));
             }
-            else if (method == "destroy")
+            else if (command == "destroy")
             {
-                scanner.Destroy();
+                Scanner.Destroy();
             }
             else
             {
-                Console.WriteLine("Invalid command, example: > scan");
+                PrintInRed($"Invalid command, example: {CommandPrefix} scan");
+            }
+            
+        }
+    }
+
+    private static void ConnectToScanner()
+    {
+        if (MacAddress == null)
+        {
+            PrintInRed($"MacAddress is not assigned. Please use {CommandPrefix}setMac");
+            return;
+        }
+        string device = Scanner.Connect(MacAddress, (message) =>
+        {
+            PrintInGreen("Mac: " + MacAddress);
+            PrintInGreen("Code: " + message);
+
+            JObject msgAsJson = JObject.Parse(message);
+            var cleanedScannedCode = msgAsJson["code"]?.ToString();
+            if (cleanedScannedCode != null)
+            {
+                PrintInGreen($"Cleaned scan result: {cleanedScannedCode}");
+            }
+            else
+            {
+                PrintInRed("Unable to extract code from json.");
+            }
+        });
+        Scanner.Auth(MacAddress);
+        PrintInGreen("Device: " + device);
+    }
+
+    private static void HandleEvents(string eventText)
+    {
+        JObject msgAsJson = JObject.Parse(eventText);
+        var cleanedMessage = msgAsJson["msg"]?.ToString();
+        if (cleanedMessage != null)
+        {
+            PrintInGreen($"Message: {cleanedMessage}");
+            if (cleanedMessage == "scan") //scanner discovered
+            {
+
+            }
+            else if (cleanedMessage == "disconnect")
+            {
+                
+            }
+            else
+            {
+
             }
         }
+    }
+
+    private static void PrintMenu()
+    {
+        var preColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine($"Command prefix: {CommandPrefix}");
+        Console.WriteLine("Possible commands:\n" +
+                          "\tscan --> scans for bluetooth devices\n" +
+                          "\tstop --> stops scanning for bluetooth devices\n" +
+                          "\tdevices --> shows discovered bluetooth devices\n" +
+                          "\tdestroy --> destroys scanner property\n" +
+                          "\tsetMac --> sets the mac address to the given one\n" +
+
+                          "\n\tUse setMac before using the next commands:\n" +
+
+                          "\t\tconnect --> connect to the device with the corresponding MacAddress\n" +
+                          "\t\tdisconnect --> disconnect from the connected device\n" +
+                          "\t\tversion --> print the hardware-version of the connected device\n" +
+                          "\t\tbattery --> print the battery percentage of the connected device\n" +
+                          "\t\tsoftware --> print the firmware version\n" +
+                          "\t\tsettingInfo --> print all the settings\n" +
+                          "\t\tquiet --> sets volume to 0\n" +
+                          "\t\tloud --> sets volume to 4\n"
+        //"\t\n" +
+        );
+        Console.ForegroundColor = preColor;
+    }
+
+    static void PrintInGreen(string printThis)
+    {
+        var consoleColorPre = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine(printThis);
+        Console.ForegroundColor = consoleColorPre;
+    }
+    static void PrintInRed(string printThis)
+    {
+        var consoleColorPre = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.DarkRed;
+        Console.WriteLine(printThis);
+        Console.ForegroundColor = consoleColorPre;
     }
 }
