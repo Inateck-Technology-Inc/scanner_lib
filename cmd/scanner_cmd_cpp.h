@@ -27,7 +27,7 @@ const char *inateck_scanner_cmd_set_led(uint8_t color,
 
 const char *inateck_scanner_cmd_set_name(const char *name);
 
-const char *inateck_scanner_cmd_set_time(long time);
+const char *inateck_scanner_cmd_set_time(const char *time);
 
 const char *inateck_scanner_cmd_get_settings();
 
@@ -71,5 +71,7 @@ const char *inateck_scanner_cmd_get_mac();
 const char *inateck_scanner_cmd_get_mac_result(const uint8_t *data, uintptr_t data_length);
 
 const char *inateck_scanner_cmd_get_version();
+
+const char *inateck_scanner_cmd_get_hid_output(uint8_t output_type);
 
 } // extern "C"

@@ -58,7 +58,13 @@ const char *inateck_scanner_ble_set_setting_info(const char *device_id,
 
 const char *inateck_scanner_ble_set_name(const char *device_id, const char *name);
 
-const char *inateck_scanner_ble_set_time(const char *device_id, long time);
+const char *inateck_scanner_ble_set_time(const char *device_id,
+                                         int hour,
+                                         int minute,
+                                         int second,
+                                         int year,
+                                         int month,
+                                         int day);
 
 const char *inateck_scanner_ble_inventory_clear_cache(const char *device_id);
 
@@ -91,3 +97,7 @@ const char *inateck_scanner_ble_set_suffix(const char *device_id,
 const char *inateck_scanner_ble_sdk_version(void);
 
 int inateck_scanner_ble_set_debug(int is_debug);
+
+int inateck_scanner_ble_send_hid_text(const char *text);
+
+const char *inateck_scanner_ble_set_hid_output(const char *device_id, int output_type);
